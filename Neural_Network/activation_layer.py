@@ -3,11 +3,6 @@ import numpy as np
 from layer import Layer
 
 # activation function and its derivative
-def tanh(x):
-    return np.tanh(x);
-
-def tanh_prime(x):
-    return 1-np.tanh(x)**2;
 
 class Tanh:
     def __init__(self):
