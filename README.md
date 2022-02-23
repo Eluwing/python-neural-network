@@ -1,2 +1,6 @@
 # python-neural-network
-softmax,ReLU, CCE
+
+This is simple Neural Network
+
+Active Function : softmax,ReLU
+Loss Function : Categorical Cross Entropy(CCE)
