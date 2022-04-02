@@ -29,17 +29,16 @@ class Model:
 
         for i in range(iteration):
 
-            #순방향 전파
             layer_forward = self.predict(x_train)
 
-            #순방향 값의 손실 값 계산
+            #Calculate loss value
             loss = self.loss.forward(layer_forward, y_train)
 
             self.loss_value.append(loss)
 
             gradient = self.loss.backward(layer_forward, y_train)
 
-            #역전파
+            #back propagation process
             for z, _ in reversed(list(enumerate(self.layers))):
                 #print("z:",z)
                 if self.layers[z].type == 'layer':

@@ -2,8 +2,6 @@
 import numpy as np
 from layer import Layer
 
-# activation function and its derivative
-
 class Tanh:
     def __init__(self):
         self.forward_value = None
@@ -35,7 +33,7 @@ class Softmax(Layer):
         self.type = 'Softmax'
 
     def forward(self,inputs):
-        #오버플로우를 방지하기 위해 최대값을 빼줌
+        #Subtract the maximum to avoid overflow
         exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
 
@@ -63,6 +61,7 @@ class ReLU(Layer):
         foward_ReLU = self.output
 
         self.output_back = gradient * np.where(foward_ReLU<=0, 0, 1)
+        #same process as above
         #self.output_back = gradient * np.heaviside(foward_ReLU,0)
 
         return self.output_back

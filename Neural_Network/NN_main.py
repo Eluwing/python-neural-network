@@ -18,19 +18,19 @@ y_true = NN_tools.oneHotEncoding(y)
 
 loss_function = Loss_CategoricalCrossentropy()
 
-# model 객체 생성
+# Generate Model Object
 model = Model()
 model.add(Layer_Dense(2,4))
 model.add(ReLU(4))
 model.add(Layer_Dense(4,3))
 model.add(Softmax(3))
 
-#범주형 교차 엔트로피로 손실 함수 설정
+#Set loss function with Categorical Cross Entropy
 model.setLoss(loss_function)
 
-#모델 훈련
+#Train model object
 model.train(X, y_true, iteration = 1000, learning_rate = 0.15)
 
-#테스트
+#Test
 out = model.predict_loss(X, y_true)
 print(out)
